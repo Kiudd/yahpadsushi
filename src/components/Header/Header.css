@@ -1,10 +1,21 @@
-.header-container { 
-    height: 60px;
-    background: red; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
+.header-container {
+  height: 50px;
+  background-image: url(https://www.ilovecakes.fr/wp-content/uploads/2018/03/makis-saumon-mangue-concombre.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
 
+.logo-container {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  z-index: 10;
+}
 
+.logo {
+  height: 40px;
+  object-fit: contain;
+  align-items: center;
 }

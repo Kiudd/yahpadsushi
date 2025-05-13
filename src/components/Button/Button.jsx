@@ -1,15 +1,16 @@
 import "./Button.css";
 
 export default function Button(prop) {
-  console.log("prooop", prop);
-
   return (
-    <div className="center">
-      <div className="btn">
-        <a href="">
-          <p>{prop.title}</p>
-        </a>
-      </div>
-    </div>
+    <>
+      <a href="#0" className="btn6">
+        <span>{prop.title}</span>
+        <span className="border-top"></span>
+  <span className="border-bottom"></span>
+  <span className="border-left"></span>
+  <span className="border-right"></span>
+
+      </a>
+    </>
   );
 }
