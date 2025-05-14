@@ -1,10 +1,9 @@
 .btn6 {
   position: relative;
   display: inline-block;
-  padding: 0 24px; /* ajusté pour enlever le padding vertical */
-  height: 100%; /* <-- ceci est la ligne clé */
+  height: 100%;
   display: flex;
-  align-items: center; /* centre le texte verticalement */
+  align-items: center;
   justify-content: center;
   color: cornsilk;
   background: transparent;
@@ -13,9 +12,12 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   overflow: hidden;
-  margin: 0 20px; /* réduit l'espace vertical */
   border: none;
   z-index: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  font-size: 14px;
+  margin: 0 10px;
 }
 
 .btn-text {
