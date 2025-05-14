@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import "./Header.css";
+import "./Header.scss";
 
 export default function Header() {
   return (
