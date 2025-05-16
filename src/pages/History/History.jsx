@@ -1,7 +1,6 @@
 import React from "react";
 
-function Storys() {
+function History() {
   return <div>Storys</div>;
 }
-
-export default Storys;
+export default History;

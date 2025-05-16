@@ -1,15 +1,14 @@
+import { Link } from "react-router-dom";
 import "./Button.scss";
 
-export default function Button(prop) {
+export default function Button({ title, href }) {
   return (
-    <>
-      <a href="#0" className="btn6">
-        <span>{prop.title}</span>
-        <span className="border-top"></span>
-        <span className="border-bottom"></span>
-        <span className="border-left"></span>
-        <span className="border-right"></span>
-      </a>
-    </>
+    <Link to={href} className="btn6">
+      <span className="btn-text ">{title}</span>
+      <span className="border-top" />
+      <span className="border-bottom" />
+      <span className="border-left" />
+      <span className="border-right" />
+    </Link>
   );
 }

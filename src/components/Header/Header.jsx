@@ -13,10 +13,10 @@ export default function Header() {
           />
         </div>
         <div className="button-group">
-          <Button title="Accueil" />
-          <Button title="Mon menu" />
-          <Button title="Mon histoire" />
-          <Button title="Commander" />
+          <Button title="Accueil" href="/" />
+          <Button title="menus" href="/menus" />
+          <Button title="histoire" href="/histoire" />
+          <Button title="Commander" href="/commander" />
         </div>
       </div>
     </div>
