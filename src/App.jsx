@@ -1,4 +1,5 @@
 import React from "react";
+import Basket from "./pages/Basket/Basket";
 
 import "./App.scss";
 
@@ -14,7 +15,7 @@ import Order from "./pages/Order/Order";
 function App() {
   return (
     <Router>
-      <div className="app-background">
+      <div className="app-container">
         <Header />
         <main className="main-content">
           <Routes>
@@ -22,6 +23,7 @@ function App() {
             <Route path="/menus" element={<Menus />} />
             <Route path="/histoire" element={<History />} />
             <Route path="/commander" element={<Order />} />
+            <Route path="/Basket" element={<Basket />} />
           </Routes>
         </main>
         <Footer />

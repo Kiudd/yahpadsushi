@@ -25,29 +25,28 @@
 
 .category-btn {
   background: transparent;
-  border: 2px solid #444;
-  padding: 10px 25px;
-  border-radius: 25px;
-  font-weight: 600;
+  border: -2px solid #444;
+  padding: 0px 50px;
+  font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
   color: #444;
-  transition: all 0.3s ease;
+  transition: all 1s ease;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-}
+  letter-spacing: -1.8px;
 
-.category-btn:hover {
-  background: #222;
+        &:hover {
+           background: #222;
   color: #fff;
   border-color: #222;
-}
+        }
 
-.category-btn.active {
-  background: #222;
+        &:active {
+          background: #222;
   color: #fff;
   border-color: #222;
   box-shadow: 0 0 10px rgba(34, 34, 34, 0.4);
+        }
 }
 
 .menu-list {
@@ -129,7 +128,6 @@
   padding: 5px 10px; /* Réduit la taille du bouton */
   font-weight: 600;
   font-size: 0.75rem; /* Réduit légèrement la taille du texte */
-  border-radius: 20px;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -157,5 +155,30 @@
   &:hover .btn-underline {
     transform: scaleX(1);
     background: #fff;
+  }
+}
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #000000;
+  position: relative;
+  text-align: center;
+}
+
+.hero-underline {
+  width: 120px;
+  height: 8px;
+  margin: 0 auto 2rem auto;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #e74c3c 60%, #ff7675 100%);
+  opacity: 0;
+  transform: scaleX(0.2);
+  animation: underlineAppear 1s 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes underlineAppear {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
