@@ -13,7 +13,7 @@ export default function Home() {
         <video autoPlay loop muted>
           {" "}
           {/* Vidéo qui se joue automatiquement, en boucle et sans son */}
-          <source src="/vidéos/sushi.mp4" type="video/mp4" />{" "}
+          <source src="/videos/sushi.mp4" type="video/mp4" />{" "}
           {/* Source de la vidéo */}
         </video>
       </div>

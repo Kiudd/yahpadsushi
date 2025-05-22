@@ -15,7 +15,7 @@
   height: 100vh;    /* 100% de la hauteur de la fenêtre */
   z-index: -1;      /* Derrière tout le contenu */
   overflow: hidden;
-
+filter: blur(4px);
 
   video {
     width: 100%;
