@@ -1,22 +1,11 @@
-// j'importe React et useState (pour gérer les changements de l'interface)
-import React, { useState } from "react";
-
-// On importe useCart, une fonction qui permet d'ajouter des produits au panier
-import { useCart } from "../../context/CartContext";
-
-//  j'importe le fichier de styles pour décorer la page
+import { useState, useEffect } from "react";
+import { useCart } from "../../Context/CartContext";
 import "./Menus.scss";
 
-// je crée un composant nommé Menus
 export default function Menus() {
-  // selectedCategory : pour garder la catégorie sélectionnée (exemple: "Plateaux")
-  // setSelectedCategory : pour changer de catégorie
   const [selectedCategory, setSelectedCategory] = useState("Plateaux");
-
-  // addToCart est une fonction pour ajouter un produit au panier
   const { addToCart } = useCart();
 
-  // c'est la liste des catégories de plats à afficher comme boutons
   const categories = [
     "Plateaux",
     "Nigiri",
@@ -28,7 +17,6 @@ export default function Menus() {
     "Dessert et boisson",
   ];
 
-  // c'est la Liste de menus avec leurs infos
   const dummyMenus = [
     {
       id: 1,
@@ -319,7 +307,7 @@ export default function Menus() {
     },
     {
       id: 41,
-      name: "Cali.  avocat concombre surimi x 10",
+      name: "Cali.  avocat concombre surimi x 10",
       price: 8.0,
       image:
         "https://yahpadsushi.com/images/items/california_concombre_surimi.webp?v=1.06",
@@ -383,7 +371,7 @@ export default function Menus() {
     },
     {
       id: 49,
-      name: "Cali. crispix avocat cheese  x 10",
+      name: "Cali. crispix avocat cheese  x 10",
       price: 8.0,
       image:
         "https://yahpadsushi.com/images/items/california_crispix_avocat_cheese.webp?v=1.06",
@@ -423,61 +411,104 @@ export default function Menus() {
     },
   ];
 
-  // pour garder les plats de la catégorie choisie
+  // Filter menus by selected category
   const filteredMenus = dummyMenus.filter(
     (item) => item.category === selectedCategory
   );
+  useEffect(() => {
+    const cards = document.querySelectorAll(".menu-card");
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("fade-in");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    cards.forEach((card) => observer.observe(card));
+    return () => cards.forEach((card) => observer.unobserve(card));
+  }, [filteredMenus]);
+  useEffect(() => {
+    const rows = document.querySelectorAll(".menu-row");
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("fade-in");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    rows.forEach((row) => observer.observe(row));
+    return () => rows.forEach((row) => observer.unobserve(row));
+  }, [filteredMenus]);
 
-  // On retourne ce qui s'affiche sur la page
   return (
     <div className="menus-page">
-      {/* Titre */}
-      <h1 className="hero-title">Notre Menus</h1>
-      <div className="hero-underline"></div>
-
-      {/* Boutons de la catégorie (Plateaux, Nigiri, etc.) */}
       <div className="categories">
+        <div className="header-menus">
+          <div className="header-title">Nos Menus</div>
+          <span className="header-underline"></span>
+        </div>
         {categories.map((cat) => (
           <button
-            key={cat} // clé unique pour chaque bouton
-            onClick={() => setSelectedCategory(cat)} // change la catégorie sélectionnée au clic
-            className={
-              cat === selectedCategory ? "category-btn active" : "category-btn"
-            } // si la catégorie est active, on ajoute la classe "active"
+            key={cat}
+            className={`category-btn${
+              selectedCategory === cat ? " active" : ""
+            }`}
+            onClick={() => setSelectedCategory(cat)}
           >
-            {cat} {/* Affiche le nom de la catégorie */}
+            {cat}
           </button>
         ))}
       </div>
-
-      {/* la Liste des plats filtrés par leurs catégorie */}
       <div className="menu-list">
-        {filteredMenus.map((item) => (
-          <div className="menu-card" key={item.id}>
-            {/* Image du plat */}
-            <img src={item.image} alt={item.name} className="menu-img" />
-
-            <div className="menu-info">
-              <h2>{item.name}</h2> {/* Nom du plat */}
-              <p>{item.description}</p> {/* Description du plat */}
-              <div className="price-cart">
-                {/*Le prix du plat */}
-                <span className="price">{item.price.toFixed(2)} €</span>
-
-                {/* Bouton pour ajouter le plat au panier */}
-                <button
-                  className="add-btn"
-                  onClick={() => addToCart(item)} // ajoute le plat au panier
-                  aria-label={`Ajouter ${item.name} au panier`} // lecture de l'écran
-                >
-                  Ajouter au panier {/* Texte visible dans le bouton */}
-                  <span className="btn-underline" />{" "}
-                  {/* c'est la ligne en dessous du texte pour décorer le bouton */}
-                </button>
-              </div>
+        {filteredMenus.map((item, idx) => {
+          const isRight = idx % 2 === 0;
+          return (
+            <div
+              className={`menu-row ${isRight ? "right" : "left"}`}
+              key={item.id}
+            >
+              {isRight ? (
+                <>
+                  <img className="menu-img" src={item.image} alt={item.name} />
+                  <div className="menu-details">
+                    <h2>{item.name}</h2>
+                    <p>{item.description || ""}</p>
+                    <div className="price-cart">
+                      <span className="price">{item.price.toFixed(2)} €</span>
+                      <button
+                        className="add-btn"
+                        onClick={() => addToCart(item)}
+                      >
+                        Ajouter au panier
+                        <span className="btn-underline" />
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="menu-details">
+                    <h2>{item.name}</h2>
+                    <p>{item.description || ""}</p>
+                    <div className="price-cart">
+                      <span className="price">{item.price.toFixed(2)} €</span>
+                      <button
+                        className="add-btn"
+                        onClick={() => addToCart(item)}
+                      >
+                        Ajouter au panier
+                        <span className="btn-underline" />
+                      </button>
+                    </div>
+                  </div>
+                  <img className="menu-img" src={item.image} alt={item.name} />
+                </>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
