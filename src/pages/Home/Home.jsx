@@ -23,10 +23,6 @@ export default function Home() {
           </Link>
         </header>
 
-        <section className="features">
-          {/* Tu peux ajouter des cartes ici */}
-        </section>
-
         <section className="testimonials">
           <h2>Avis de nos clients</h2>
           <div className="testimonial-list">
