@@ -1,10 +1,10 @@
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { useCart } from "../../Context/CartContext"; // <-- Ajoute cet import
+import { useCart } from "../../Context/CartContext";
 import "./Header.scss";
 
 export default function Header() {
-  const { totalItems } = useCart(); // <-- Place ceci AVANT le return
+  const { totalItems } = useCart();
 
   return (
     <div className="header-container">
@@ -21,6 +21,7 @@ export default function Header() {
           <Button title="menus" href="/menus" />
           <Button title="histoire" href="/histoire" />
           <Button title="Où Nous trouver ?" href="/commander" />
+          <Button title="Nous contacter" href="/contact" />
         </div>
         <div className="cart-icon">
           <Link to="/Basket" aria-label="Voir le panier">

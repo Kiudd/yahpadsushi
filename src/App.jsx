@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home";
 import Menus from "./pages/Menus/Menus";
 import History from "./pages/History/History";
 import Order from "./pages/Order/Order";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/histoire" element={<History />} />
             <Route path="/commander" element={<Order />} />
             <Route path="/Basket" element={<Basket />} />
+            <Route path="/Contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />

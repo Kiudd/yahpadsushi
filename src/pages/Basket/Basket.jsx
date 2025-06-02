@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../../Context/CartContext";
 import "./Basket.scss";
+import PaypalButton from "../../components/Payments/payments";
 export default function Basket() {
   const { cartItems, removeFromCart, clearCart, totalPrice } = useCart();
 
@@ -27,6 +28,11 @@ export default function Basket() {
           </p>
           <button onClick={clearCart}>Vider le panier</button>
         </>
+      )}
+      {cartItems.length > 0 && (
+        <div className="paypal-wrapper">
+          <PaypalButton amount={totalPrice.toFixed(2)} />
+        </div>
       )}
     </div>
   );

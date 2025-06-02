@@ -1,0 +1,109 @@
+.map-page {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("https://www.artisans-gourmands.fr/wp-content/uploads/2021/12/livraison_domicile_1000_Stock-1074167156.jpeg")
+    center/cover no-repeat fixed;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .map-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      animation: fadeSlideDown 1s ease forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    .header-underline {
+      height: 4px;
+      width: 120px;
+      background: linear-gradient(90deg, #e74c3c 60%, #ff7675 100%);
+      border-radius: 2px;
+      margin: 0 auto;
+      animation: underlineGrow 1s cubic-bezier(0.4, 2, 0.6, 1) forwards;
+      opacity: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .map-iframe-container {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+}
+
+@keyframes underlineGrow {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .map-page {
+    padding: 3rem 1rem;
+
+    .map-header h1 {
+      font-size: 2rem;
+    }
+
+    .map-iframe-container iframe {
+      height: 300px;
+    }
+  }
+}

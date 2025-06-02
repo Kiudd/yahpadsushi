@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCart } from "../../Context/CartContext";
 import "./Menus.scss";
+import { image } from "framer-motion/client";
 
 export default function Menus() {
   const [selectedCategory, setSelectedCategory] = useState("Plateaux");
@@ -15,6 +16,7 @@ export default function Menus() {
     "Flocon",
     "Salade et brochette",
     "Dessert et boisson",
+    "Sauces",
   ];
 
   const dummyMenus = [
@@ -371,7 +373,7 @@ export default function Menus() {
     },
     {
       id: 49,
-      name: "Cali. crispix avocat cheese  x 10",
+      name: "Cali. crispix avocat cheese x 10",
       price: 8.0,
       image:
         "https://yahpadsushi.com/images/items/california_crispix_avocat_cheese.webp?v=1.06",
@@ -408,6 +410,21 @@ export default function Menus() {
       image:
         "https://yahpadsushi.com/images/items/california_saumon_avocat_cheese.webp?v=1.06",
       category: "California",
+    },
+    {
+      id: 54,
+      name: "Sauce soja sucré",
+      price: 2.0,
+      image: "https://yahpadsushi.com/images/items/sauce.webp?v=1.06",
+      category: "Sauces",
+    },
+
+    {
+      id: 55,
+      name: "Sauce soja Salé",
+      price: 1.0,
+      image: "https://yahpadsushi.com/images/items/sauce.webp?v=1.06",
+      category: "Sauces",
     },
   ];
 

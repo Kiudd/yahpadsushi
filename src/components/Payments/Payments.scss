@@ -1,0 +1,33 @@
+.paypal-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  // Pour un fond ou une carte autour du bouton
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  // PayPal bouton iframe ou contenu interne
+  #paypal-button-container {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .paypal-button-container {
+    padding: 1rem;
+    width: 100%;
+    max-width: 320px;
+  }
+}
