@@ -1,13 +1,20 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
-
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const saved = localStorage.getItem("cartItems");
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  // Ajouter un produit au panier
+  // Sauvegarde automatique du panier dans LocalStorage
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // ➕ Ajouter un produit
   const addToCart = (item) => {
     setCartItems((prev) => {
       const existing = prev.find((i) => i.id === item.id);
@@ -20,7 +27,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // Enlever un produit
+  // ➖ Enlever un produit
   const removeFromCart = (itemId) => {
     setCartItems((prev) =>
       prev
@@ -31,15 +38,16 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Vider le panier
+  // 🧹 Vider le panier
   const clearCart = () => setCartItems([]);
 
-  // Prix total
+  // 💰 Calcul du total
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
 
+  // 🔢 Nombre total d’articles
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
