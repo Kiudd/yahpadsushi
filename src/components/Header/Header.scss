@@ -1,14 +1,18 @@
 .header-container {
   height: 60px;
   background: transparent;
-  border-bottom: 2px solid #111; // ligne noire en bas
+  border-bottom: 2px solid #0b0000; // ligne noire en bas
   box-shadow: none;
   display: flex;
   align-items: center;
   padding: 0 40px;
   position: relative;
   z-index: 10;
-    border-top: 2px solid #111; // ligne noire en haut
+    border-top: 2px solid #f0e8e8; // ligne noire en haut
+    position: absolute; // ou fixed si tu veux qu’il reste en haut en scrollant
+  top: 0;
+  left: 0;
+  width: 100%;
 
 }
 
@@ -35,7 +39,7 @@
   position: relative; // <-- Ajoute ou garde cette ligne
   display: inline-block; // <-- Ajoute pour que le badge suive l'icône
   font-size: 1.8rem;
-  color: #111;
+  color: #f8f0f0;
 }
 
   a {
@@ -48,7 +52,7 @@
     }
     .button-group button,
 .button-group a {
-  color: #111 !important;
+  color: #f4f0f0 !important;
 }
 
 .basket-icon {
