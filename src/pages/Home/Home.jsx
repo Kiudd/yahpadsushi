@@ -19,7 +19,7 @@ export default function Home() {
           <h1 className="hero-title">Bienvenue chez Yahpadsushi</h1>
           <div className="hero-underline"></div>
           <Link to="https://yahpadsushi.com" className="hero-button">
-            Venez commandez !
+            Venez commander !
           </Link>
         </header>
 
