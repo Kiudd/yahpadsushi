@@ -8,6 +8,7 @@
   justify-content: center;
   padding: 60px 20px;
    padding-top: 100px;
+   
 
   &::before {
     content: "";
@@ -54,6 +55,7 @@
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: fadeInUp 1s ease-out;
+    
 
     h2 {
       text-align: center;

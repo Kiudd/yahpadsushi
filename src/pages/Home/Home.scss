@@ -1,19 +1,28 @@
 .home-wrapper {
- position: relative;
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
   color: #fff;
   font-family: "Poppins", sans-serif;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
 }
 
 .video-background {
-   position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: -2; // plus bas que le ::before
   overflow: hidden;
 
   video {
@@ -24,8 +33,8 @@
 }
 
 .home-content {
-  position: relative; // 👈 indispensable pour être au-dessus
-  z-index: 1;          // 👈 contenu passe par-dessus la vidéo
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
