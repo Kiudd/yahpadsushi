@@ -445,6 +445,7 @@ export default function Menus() {
     cards.forEach((card) => observer.observe(card));
     return () => cards.forEach((card) => observer.unobserve(card));
   }, [filteredMenus]);
+
   useEffect(() => {
     const rows = document.querySelectorAll(".menu-row");
     const observer = new window.IntersectionObserver(

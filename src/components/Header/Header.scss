@@ -70,3 +70,32 @@
   font-weight: bold;
   z-index: 2;
 }
+@media screen and (max-width: 768px) {
+  .header-container {
+    height: auto;
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-and-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cart-icon, .basket-icon {
+    font-size: 1.5rem;
+  }
+
+  .basket-count {
+    top: -5px;
+    right: -5px;
+    padding: 2px 5px;
+    font-size: 0.7rem;
+  }
+}
